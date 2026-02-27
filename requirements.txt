@@ -8,3 +8,4 @@ jupyter
 streamlit
 streamlit-chat
 plotly
+openpyxl
