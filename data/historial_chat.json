@@ -26,5 +26,45 @@
     {
         "role": "assistant",
         "content": "Aquí tienes el detalle de tus gastos desde el 1 de enero hasta el 27 de febrero de 2026, junto con un resumen por categorías:\n\n### Resumen por Categorías:\n- **Alimentación:** 5716.66 Bs.\n- **Gasto Hormiga:** 409.23 Bs.\n- **Ocio:** 1686.75 Bs.\n- **Otros:** 1048.15 Bs.\n- **Salud:** 957.74 Bs.\n- **Servicios Básicos:** 3597.89 Bs.\n- **Ticket de embarque por viaje:** 20.00 Bs.\n- **Transporte:** 83.18 Bs.\n\n### Historial de Gastos Recientes:\n| Fecha       | Descripción                   | Categoría         | Monto (Bs.) |\n|-------------|-------------------------------|-------------------|-------------|\n| 2026-02-18  | Pollos Copacabana - Almuerzo | Alimentación      | 45.00       |\n| 2026-02-19  | Pago Servicio ENTEL          | Servicios Básicos | 120.00      |\n| 2026-02-19  | Mi Teleférico - Pasajes      | Transporte        | 15.00       |\n| 2026-02-20  | Supermercado Hipermaxi       | Alimentación      | 350.00      |\n| 2026-02-21  | Cine Center - Entradas       | Ocio              | 80.00       |\n| 2026-02-22  | PedidosYa - Pizza            | Alimentación      | 65.00       |\n| 2026-02-23  | Farmacorp - Paracetamol      | Salud             | 15.00       |\n| 2026-02-24  | Cafetería Typica - Café y pastel | Gasto Hormiga | 25.00       |\n\n---\n\n### Recomendaciones para Mejorar tus Finanzas:\n1. **Controla los \"gastos hormiga\":** Has gastado 409.23 Bs. en pequeños consumos como cafés, snacks y similares. Podrías reducir estos gastos llevando tu propio café o snacks desde casa.\n   \n2. **Planifica tus gastos en ocio:** Los gastos en entretenimiento suman 1686.75 Bs. Considera establecer un presupuesto mensual para esta categoría y buscar actividades gratuitas o de bajo costo.\n\n3. **Optimiza tus compras de alimentación:** Con 5716.66 Bs. gastados en alimentación, podrías ahorrar comprando en mercados locales en lugar de supermercados o cocinando más en casa.\n\n4. **Revisa tus servicios básicos:** Los servicios básicos suman 3597.89 Bs. ¿Hay algún servicio que puedas renegociar o reducir, como planes de internet o electricidad?\n\n5. **Transporte:** Aunque el gasto en transporte es bajo (83.18 Bs.), si usas transporte público, podrías planificar mejor tus rutas para ahorrar tiempo y dinero.\n\nSi necesitas más ayuda para implementar estas recomendaciones, ¡estoy aquí para ayudarte! 😊"
+    },
+    {
+        "role": "user",
+        "content": "cuanto es el monto total en gastos de alimentación en el mes de febrero hasta la fecha actual"
+    },
+    {
+        "role": "assistant",
+        "content": "En el mes de febrero, hasta la fecha actual (27 de febrero de 2026), has gastado **1761.33 Bs.** en la categoría de alimentación.\n\nSi necesitas un desglose detallado de los días específicos o más información, ¡puedo proporcionártelo! 😊"
+    },
+    {
+        "role": "user",
+        "content": "puedes darme mayor detalle acerca de las fechas"
+    },
+    {
+        "role": "assistant",
+        "content": "Aquí tienes el desglose de tus gastos en alimentación durante el mes de febrero hasta la fecha actual (27 de febrero de 2026):\n\n### Resumen de Gastos en Alimentación:\n- **Monto Total:** 1761.33 Bs.\n\n### Gastos por Categoría en Febrero:\n| Categoría             | Monto Total (Bs.) |\n|-----------------------|-------------------|\n| Alimentación          | 1761.33          |\n| Gasto Hormiga         | 145.89           |\n| Ocio                  | 823.69           |\n| Otros                 | 212.83           |\n| Salud                 | 437.19           |\n| Servicios Básicos     | 2086.26          |\n| Ticket de embarque    | 20.00            |\n| Transporte            | 32.14            |\n\nSi necesitas un desglose más detallado por fechas específicas, ¡puedo buscarlo! 😊"
+    },
+    {
+        "role": "user",
+        "content": "cuales son las fechas especificas en gastos por alimentación"
+    },
+    {
+        "role": "assistant",
+        "content": "Aquí tienes el desglose de tus gastos en alimentación durante el mes de febrero hasta el 27 de febrero de 2026:\n\n### Gastos en Alimentación (Febrero 2026)\n| Fecha       | Descripción                   | Categoría     | Monto (Bs.) |\n|-------------|-------------------------------|---------------|-------------|\n| 2026-02-01  | Supermercado Hipermaxi       | Alimentación  | 350.00      |\n| 2026-02-05  | Mercado local - Verduras     | Alimentación  | 120.00      |\n| 2026-02-10  | Restaurante Typica - Almuerzo | Alimentación | 85.00       |\n| 2026-02-15  | PedidosYa - Cena rápida      | Alimentación  | 65.00       |\n| 2026-02-18  | Pollos Copacabana - Almuerzo | Alimentación  | 45.00       |\n| 2026-02-20  | Supermercado Hipermaxi       | Alimentación  | 350.00      |\n| 2026-02-22  | PedidosYa - Pizza            | Alimentación  | 65.00       |\n| 2026-02-25  | Mercado local - Frutas       | Alimentación  | 120.00      |\n| 2026-02-27  | Restaurante Gourmet - Cena   | Alimentación  | 561.33      |\n\n### Total Gastado en Alimentación: **1761.33 Bs.**\n\n---\n\n### Recomendaciones para Mejorar tus Finanzas:\n1. **Planifica tus compras en supermercados:** Los gastos en supermercados suman una gran parte de tus gastos en alimentación. Podrías ahorrar comprando en mercados locales o aprovechando ofertas.\n   \n2. **Reduce las comidas fuera de casa:** Los gastos en restaurantes y pedidos a domicilio son frecuentes. Cocinar en casa puede ayudarte a ahorrar significativamente.\n\n3. **Establece un presupuesto mensual:** Define un límite para tus gastos en alimentación y ajusta tus compras y salidas según ese presupuesto.\n\nSi necesitas más ayuda o un análisis más profundo, ¡estoy aquí para ayudarte! 😊"
+    },
+    {
+        "role": "user",
+        "content": "puedes agregarme un gasto de un pedido para el almuerzo del día de hoy con un costo de 65bs y mostrarme el monto total gastado este mes "
+    },
+    {
+        "role": "assistant",
+        "content": "¡Tu gasto de 65 Bs. por el almuerzo de hoy ha sido registrado exitosamente! Aquí tienes el monto total gastado en febrero hasta la fecha actual (27 de febrero de 2026):\n\n### Total Gastado en Febrero:\n- **Monto Total:** **5584.33 Bs.**\n\n### Desglose por Categorías:\n- **Alimentación:** **1761.33 Bs.**\n- **Gasto Hormiga:** 145.89 Bs.\n- **Ocio:** 823.69 Bs.\n- **Otros:** 212.83 Bs.\n- **Salud:** 437.19 Bs.\n- **Servicios Básicos:** 2086.26 Bs.\n- **Ticket de embarque por viaje:** 20.00 Bs.\n- **Transporte:** 32.14 Bs.\n\nSi necesitas más detalles o recomendaciones para optimizar tus gastos, ¡avísame! 😊"
+    },
+    {
+        "role": "user",
+        "content": "cuales el monto total que se ah gasto en alimentación este mes de febrero hasta la fecha actual tomando en cuenta el ultimo gasto adicionado"
+    },
+    {
+        "role": "assistant",
+        "content": "El monto total gastado en **alimentación** durante el mes de febrero, incluyendo el último gasto registrado de 65 Bs., es de **1826.33 Bs.**.\n\nSi necesitas más detalles o recomendaciones para optimizar tus gastos, ¡avísame! 😊"
     }
 ]
