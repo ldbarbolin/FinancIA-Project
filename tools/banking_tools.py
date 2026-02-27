@@ -102,3 +102,34 @@ def analizar_estadisticas_periodo(id_cliente: str, fecha_inicio: str = None, fec
         
     except FileNotFoundError:
         return "Error: No se encontró la base de datos histórica."
+
+
+@tool
+def registrar_gasto(id_cliente: str, monto: float, categoria: str, descripcion: str) -> str:
+    """
+    Útil para registrar un nuevo gasto en la cuenta del cliente.
+    Parámetros:
+    - id_cliente: "1001"
+    - monto: Monto del gasto en Bolivianos (Bs.).
+    - categoria: Categoría del gasto (e.g., "Alimentación", "Transporte").
+    - descripcion: Detalles adicionales sobre el gasto.
+    Devuelve una confirmación de que el gasto ha sido registrado correctamente.
+    """
+    ruta_csv = os.path.join(os.path.dirname(__file__), '..', 'data', 'gastos_historicos.csv')
+    
+    # Creamos un nuevo registro de gasto
+    nuevo_gasto = {
+        'id_cliente': int(id_cliente),
+        'fecha': pd.Timestamp.now().strftime('%Y-%m-%d'),
+        'monto': monto,
+        'categoria': categoria,
+        'descripcion': descripcion
+    }
+    
+    # Guardamos el nuevo gasto en el CSV
+    try:
+        df = pd.DataFrame([nuevo_gasto])
+        df.to_csv(ruta_csv, mode='a', header=not os.path.exists(ruta_csv), index=False)
+        return f"Gasto registrado exitosamente: {monto} Bs. en {categoria} - {descripcion}"
+    except Exception as e:
+        return f"Error al registrar el gasto: {str(e)}"
