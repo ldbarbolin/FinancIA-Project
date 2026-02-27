@@ -12,7 +12,8 @@ sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 from langchain_openai import AzureChatOpenAI
 from langchain_core.messages import HumanMessage
 from langgraph.prebuilt import create_react_agent 
-from tools.banking_tools import obtener_saldo, obtener_gastos_recientes, analizar_estadisticas_periodo
+from tools.banking_tools import obtener_saldo, obtener_gastos_recientes, analizar_estadisticas_periodo, registrar_gasto
+
 
 # Cargamos variables de entorno
 load_dotenv('.env')
@@ -44,7 +45,7 @@ def iniciar_agente():
     4. ADVERTENCIA: Nunca recomiendes inversiones específicas.
     """
     
-    tools = [obtener_saldo, obtener_gastos_recientes, analizar_estadisticas_periodo]
+    tools = [obtener_saldo, obtener_gastos_recientes, analizar_estadisticas_periodo, registrar_gasto]
     return create_react_agent(llm, tools, prompt=instrucciones)
 
 agent_executor = iniciar_agente()
@@ -125,5 +126,11 @@ if prompt := st.chat_input("Ej: ¿Cuánto he gastado este mes en transporte?"):
                 respuesta_texto = respuesta["messages"][-1].content
                 st.markdown(respuesta_texto)
                 st.session_state.mensajes.append({"role": "assistant", "content": respuesta_texto})
+                
+                # --- NUEVO: Refrescar gráficos si se registró un gasto ---
+                if "registrado" in respuesta_texto.lower() or "éxito" in respuesta_texto.lower():
+                    cargar_datos_historicos.clear() # Limpia la caché de Pandas
+                    st.rerun() # Recarga la app para que los gráficos se actualicen al instante
+                    
             except Exception as e:
                 st.error(f"Error de conexión: {e}")
