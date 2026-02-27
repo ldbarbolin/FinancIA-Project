@@ -4,6 +4,7 @@ import pandas as pd
 import plotly.express as px
 import os
 import sys
+import io
 from datetime import datetime
 from dotenv import load_dotenv
 
@@ -91,6 +92,27 @@ with st.sidebar:
                          color_discrete_sequence=['#2C3E50'])
         fig_bar.update_layout(margin=dict(t=0, b=0, l=0, r=0))
         st.plotly_chart(fig_bar, use_container_width=True)
+        
+        #Botón de exportación de datos
+        st.divider() # Línea separadora estética
+        st.subheader("📥 Exportar Datos")
+        st.write("Descarga tu historial completo para tus registros.")
+        
+        # Preparamos el archivo Excel en memoria
+        buffer = io.BytesIO()
+        with pd.ExcelWriter(buffer, engine='openpyxl') as writer:
+            # Quitamos la columna id_cliente para que el Excel sea más limpio para el usuario
+            df_exportar = df_cliente.drop(columns=['id_cliente'])
+            df_exportar.to_excel(writer, index=False, sheet_name='Mis_Gastos_FinancIA')
+        
+        # Creamos el botón nativo de Streamlit
+        st.download_button(
+            label="Descargar Historial (Excel)",
+            data=buffer,
+            file_name=f"Historial_FinancIA_{datetime.now().strftime('%Y-%m-%d')}.xlsx",
+            mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+            use_container_width=True
+        )
     else:
         st.warning("No se encontraron datos en el historial.")
 
