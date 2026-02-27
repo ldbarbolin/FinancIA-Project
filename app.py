@@ -5,13 +5,14 @@ import plotly.express as px
 import os
 import sys
 import io
+import json
 from datetime import datetime
 from dotenv import load_dotenv
 
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
 from langchain_openai import AzureChatOpenAI
-from langchain_core.messages import HumanMessage
+from langchain_core.messages import HumanMessage, AIMessage
 from langgraph.prebuilt import create_react_agent 
 from tools.banking_tools import obtener_saldo, obtener_gastos_recientes, analizar_estadisticas_periodo, registrar_gasto
 
@@ -116,17 +117,32 @@ with st.sidebar:
     else:
         st.warning("No se encontraron datos en el historial.")
 
+RUTA_HISTORIAL = os.path.join(os.path.dirname(__file__), 'data', 'historial_chat.json')
+
+def cargar_memoria():
+    """Carga el historial del chat desde un archivo JSON."""
+    if os.path.exists(RUTA_HISTORIAL):
+        with open(RUTA_HISTORIAL, 'r', encoding='utf-8') as f:
+            return json.load(f)
+    return [
+        {"role": "assistant", "content": "¡Hola Carlos! Ya analicé tu dashboard. ¿Qué duda tienes sobre tus finanzas hoy?"}
+    ]
+
+def guardar_memoria(mensajes):
+    """Guarda el historial actual en un archivo JSON."""
+    with open(RUTA_HISTORIAL, 'w', encoding='utf-8') as f:
+        json.dump(mensajes, f, ensure_ascii=False, indent=4)
+
+
 #Panel principal con el chat
 st.title("🤖 FinancIA")
 st.markdown("Tu asesor financiero personal impulsado por Inteligencia Artificial Generativa.")
 
-# Memoria del chat en la sesión
+# Inicializar o cargar la memoria desde el JSON
 if "mensajes" not in st.session_state:
-    st.session_state.mensajes = [
-        {"role": "assistant", "content": "¡Hola David! Ya analicé tu dashboard de la izquierda. ¿Qué duda tienes sobre tus finanzas hoy?"}
-    ]
+    st.session_state.mensajes = cargar_memoria()
 
-# Mostrar historial de mensajes
+# Mostrar historial de mensajes en la pantalla
 for msg in st.session_state.mensajes:
     with st.chat_message(msg["role"]):
         st.markdown(msg["content"])
@@ -134,27 +150,42 @@ for msg in st.session_state.mensajes:
 # Input del usuario
 if prompt := st.chat_input("Ej: ¿Cuánto he gastado este mes en transporte?"):
     
-    # 1. Mostrar pregunta del usuario
+    # 1. Mostrar pregunta del usuario y guardarla
     with st.chat_message("user"):
         st.markdown(prompt)
     st.session_state.mensajes.append({"role": "user", "content": prompt})
+    guardar_memoria(st.session_state.mensajes) # Guardamos en el JSON al instante
     
-    # 2. Inyectar silenciosamente el ID del cliente para que el agente sepa de quién buscar datos
-    pregunta_enriquecida = f"Soy el cliente con ID 1001. {prompt}"
+    # 2. Construir la memoria conversacional para el Agente
+    # Convertimos nuestro JSON a objetos HumanMessage y AIMessage que LangChain entiende
+    historial_langchain = []
+    for msg in st.session_state.mensajes:
+        if msg["role"] == "user":
+            # Inyectamos silenciosamente el ID solo en el último mensaje
+            if msg == st.session_state.mensajes[-1]:
+                historial_langchain.append(HumanMessage(content=f"Soy el cliente con ID 1001. {msg['content']}"))
+            else:
+                historial_langchain.append(HumanMessage(content=msg["content"]))
+        elif msg["role"] == "assistant":
+            historial_langchain.append(AIMessage(content=msg["content"]))
     
-    # 3. Procesar respuesta del Agente (mostrando un 'spinner' de carga animado)
+    # 3. Procesar respuesta del Agente
     with st.chat_message("assistant"):
         with st.spinner("Revisando tus números y calculando..."):
             try:
-                respuesta = agent_executor.invoke({"messages": [HumanMessage(content=pregunta_enriquecida)]})
+                # Le pasamos TODO el historial, no solo la última pregunta
+                respuesta = agent_executor.invoke({"messages": historial_langchain})
                 respuesta_texto = respuesta["messages"][-1].content
                 st.markdown(respuesta_texto)
-                st.session_state.mensajes.append({"role": "assistant", "content": respuesta_texto})
                 
-                # --- NUEVO: Refrescar gráficos si se registró un gasto ---
+                # Guardamos la respuesta de la IA
+                st.session_state.mensajes.append({"role": "assistant", "content": respuesta_texto})
+                guardar_memoria(st.session_state.mensajes) # Guardamos en el JSON al instante
+                
+                # Refrescar gráficos si se registró un gasto
                 if "registrado" in respuesta_texto.lower() or "éxito" in respuesta_texto.lower():
-                    cargar_datos_historicos.clear() # Limpia la caché de Pandas
-                    st.rerun() # Recarga la app para que los gráficos se actualicen al instante
+                    cargar_datos_historicos.clear()
+                    st.rerun()
                     
             except Exception as e:
                 st.error(f"Error de conexión: {e}")
