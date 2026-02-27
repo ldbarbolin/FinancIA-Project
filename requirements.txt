@@ -1,0 +1,10 @@
+langchain
+langchain-openai
+langgraph
+openai
+pandas
+python-dotenv
+jupyter
+streamlit
+streamlit-chat
+plotly

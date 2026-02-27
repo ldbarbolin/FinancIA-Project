@@ -1,0 +1,16 @@
+{
+  "1001": {
+    "nombre": "Carlos",
+    "saldo_actual": 3450.50,
+    "gastos_recientes": [
+      {"fecha": "2026-02-18", "monto": 45.00, "descripcion": "Pollos Copacabana - Almuerzo", "tipo": "debito"},
+      {"fecha": "2026-02-19", "monto": 120.00, "descripcion": "Pago Servicio ENTEL", "tipo": "debito"},
+      {"fecha": "2026-02-19", "monto": 15.00, "descripcion": "Mi Teleférico - Pasajes", "tipo": "debito"},
+      {"fecha": "2026-02-20", "monto": 350.00, "descripcion": "Supermercado Hipermaxi", "tipo": "debito"},
+      {"fecha": "2026-02-21", "monto": 80.00, "descripcion": "Cine Center - Entradas", "tipo": "debito"},
+      {"fecha": "2026-02-22", "monto": 65.00, "descripcion": "PedidosYa - Pizza", "tipo": "debito"},
+      {"fecha": "2026-02-23", "monto": 15.00, "descripcion": "Farmacorp - Paracetamol", "tipo": "debito"},
+      {"fecha": "2026-02-24", "monto": 25.00, "descripcion": "Cafetería Typica - Café y pastel", "tipo": "debito"}
+    ]
+  }
+}
