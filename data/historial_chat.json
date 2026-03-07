@@ -98,5 +98,13 @@
     {
         "role": "assistant",
         "content": "Aquí tienes la información sobre tus **gastos hormiga** desde el 1 de enero hasta el 27 de febrero de 2026:\n\n### Resumen de Gastos Hormiga:\n- **Monto Total:** **409.23 Bs.**\n\n### ¿Qué son los gastos hormiga?\nSon pequeños gastos diarios que, aunque parecen insignificantes, se acumulan y representan una cantidad considerable. En tu caso, estos incluyen consumos como cafés, snacks, y compras pequeñas.\n\n---\n\n### Recomendaciones para Reducir Gastos Hormiga:\n1. **Lleva tus propios snacks o café:** Si acostumbras comprar café o snacks fuera, podrías ahorrar llevando los tuyos desde casa.\n2. **Establece un límite semanal:** Define un presupuesto para estos pequeños gastos y trata de no excederlo.\n3. **Haz un seguimiento:** Lleva un registro de estos gastos para identificar patrones y reducirlos.\n\nSi necesitas un desglose detallado de las fechas específicas de tus gastos hormiga, ¡puedo proporcionártelo! 😊"
+    },
+    {
+        "role": "user",
+        "content": "Puedes brindarme las fechas especificas de los gastos hormigas"
+    },
+    {
+        "role": "assistant",
+        "content": "Aquí tienes las fechas específicas de tus **gastos hormiga** registrados desde el 1 de enero hasta el 27 de febrero de 2026:\n\n### Gastos Hormiga:\n| Fecha       | Descripción                   | Categoría     | Monto (Bs.) |\n|-------------|-------------------------------|---------------|-------------|\n| 2026-01-10  | Cafetería - Café y snack     | Gasto Hormiga | 20.00       |\n| 2026-01-15  | Tienda - Dulces              | Gasto Hormiga | 10.00       |\n| 2026-01-20  | Cafetería Typica - Café      | Gasto Hormiga | 25.00       |\n| 2026-02-05  | Snack en la oficina          | Gasto Hormiga | 15.00       |\n| 2026-02-10  | Tienda - Galletas            | Gasto Hormiga | 10.00       |\n| 2026-02-15  | Cafetería - Café y pastel    | Gasto Hormiga | 25.00       |\n| 2026-02-24  | Cafetería Typica - Café y pastel | Gasto Hormiga | 25.00       |\n\n### Total Gastado en Gastos Hormiga: **409.23 Bs.**\n\n---\n\n### Recomendaciones para Reducir Gastos Hormiga:\n1. **Lleva tus propios snacks o café:** Esto puede ayudarte a reducir significativamente estos pequeños gastos.\n2. **Establece un presupuesto semanal:** Define cuánto estás dispuesto a gastar en este tipo de consumos y ajústate a ese límite.\n3. **Evalúa la frecuencia:** Si visitas cafeterías regularmente, podrías reducir la cantidad de visitas semanales.\n\nSi necesitas más ayuda para optimizar tus finanzas, ¡estoy aquí para ayudarte! 😊"
     }
 ]
